@@ -1,0 +1,18 @@
+default: &default
+  host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  adapter: postgresql
+  username:  <%= ENV.fetch("DATABASE_USERNAME") { Rails.application.credentials.psql.credentials[:db_username] } %>
+  password:  <%= ENV.fetch("DATABASE_PASSWORD") { Rails.application.credentials.psql.credentials[:db_password] } %>
+development:
+  <<: *default
+  database: cryptotracker_development
+
+test:
+  <<: *default
+  database: cryptotracker_test
+
+production:
+  <<: *default
+  database: cryptotracker_production

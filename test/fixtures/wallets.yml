@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  overall_worth: 9.99
+  wallet_type: MyString
+
+two:
+  overall_worth: 9.99
+  wallet_type: MyString
