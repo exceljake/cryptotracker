@@ -20,6 +20,8 @@ gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 
+gem 'jekyll', '~> 4.2', '>= 4.2.2'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
