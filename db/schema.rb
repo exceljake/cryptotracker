@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_27_040254) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_155643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cryptocurrencies", force: :cascade do |t|
+    t.string "currency"
+    t.decimal "latest_price"
+    t.decimal "quantity"
+    t.decimal "total_worth"
+    t.bigint "wallet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wallet_id"], name: "index_cryptocurrencies_on_wallet_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -37,10 +48,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_27_040254) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "overall_worth"
+    t.decimal "overall_worth", default: "0.0"
     t.string "wallet_type"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "cryptocurrencies", "wallets"
+  add_foreign_key "wallets", "users"
 end
