@@ -1448,3 +1448,456 @@ Did you mean?  wallet_type):
   
 app/controllers/wallets_controller.rb:52:in `wallet_params'
 app/controllers/wallets_controller.rb:19:in `create'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWallets (20220827040254)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (42.1ms)[0m  [1m[35mDROP TABLE "wallets"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (2.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220827040254"]]
+  [1m[36mTRANSACTION (33.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWallets (20220827040254)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" bigserial primary key, "overall_worth" decimal DEFAULT 0.0, "wallet_type" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_732f6628c4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE INDEX "index_wallets_on_user_id" ON "wallets" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (9.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220827040254"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (49.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/wallets" for ::1 at 2022-08-31 18:57:45 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#create as */*
+  Parameters: {"overall_worth"=>"10000", "wallet_type"=>"binance"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 400 Bad Request in 143ms (ActiveRecord: 24.8ms | Allocations: 13352)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: wallet
+Did you mean?  wallet_type):
+  
+app/controllers/wallets_controller.rb:52:in `wallet_params'
+app/controllers/wallets_controller.rb:19:in `create'
+  [1m[36mWallet Load (11.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets"[0m
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWallet Create (33.5ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "Binance"], ["user_id", 1], ["created_at", "2022-08-31 11:02:59.863233"], ["updated_at", "2022-08-31 11:02:59.863233"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWallet Load (9.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets"[0m
+Started POST "/wallets" for ::1 at 2022-08-31 19:26:00 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#create as */*
+  Parameters: {"overall_worth"=>"10000", "wallet_type"=>"binance", "user_id"=>"1"}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 204301ms (ActiveRecord: 56.9ms | Allocations: 78237)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:29:46 +0800
+Processing by WalletsController#create as */*
+  [1m[36mUser Load (46.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 155507ms (ActiveRecord: 46.9ms | Allocations: 264009)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:32:27 +0800
+Processing by WalletsController#create as */*
+  [1m[36mUser Load (32.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 36361ms (ActiveRecord: 32.3ms | Allocations: 295993)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:33:12 +0800
+Processing by WalletsController#create as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 135034ms (ActiveRecord: 2.2ms | Allocations: 339824)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:35:44 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>"{\"overall_worth\":\"10000\"}", "wallet_type"=>"binance", "user_id"=>"1"}
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 66327ms (ActiveRecord: 131.3ms | Allocations: 2768919)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:37:00 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>"{overall_worth:10000, wallet_type:\"Binance\", user_id:1}", "wallet_type"=>"binance", "user_id"=>"1"}
+  [1m[36mUser Load (57.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 123210ms (ActiveRecord: 57.3ms | Allocations: 368355)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:39:08 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>"{overall_worth:10000, wallet_type:\"Binance\", user_id:1}"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 309391ms (ActiveRecord: 5.3ms | Allocations: 369006)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:45:10 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"binance", "user_id"=>1}}
+  [1m[36mUser Load (30.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user_id. Context: { controller: WalletsController, action: create, request: #<ActionDispatch::Request:0x00007f1711fd0848>, params: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"binance", "user_id"=>1}, "controller"=>"wallets", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 58936ms (ActiveRecord: 30.5ms | Allocations: 399423)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:46:19 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"binance", "user_id"=>1}}
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20553ms (ActiveRecord: 176.8ms | Allocations: 3018801)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:47:10 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"binance", "user_id"=>1}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ (byebug):1:in `create'
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mWallet Create (52.2ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "binance"], ["user_id", 1], ["created_at", "2022-08-31 11:47:45.087935"], ["updated_at", "2022-08-31 11:47:45.087935"]]
+  ↳ (byebug):1:in `create'
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (byebug):1:in `create'
+Completed 500 Internal Server Error in 144572ms (ActiveRecord: 85.3ms | Allocations: 414757)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/wallets_controller.rb:20:in `create'
+Started POST "/wallets" for ::1 at 2022-08-31 19:50:09 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"binance", "user_id"=>1}}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mWallet Create (12.4ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "binance"], ["user_id", 1], ["created_at", "2022-08-31 11:50:09.962833"], ["updated_at", "2022-08-31 11:50:09.962833"]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  Rendering wallets/show.json.jbuilder
+  Rendered wallets/_wallet.json.jbuilder (Duration: 1.4ms | Allocations: 273)
+  Rendered wallets/show.json.jbuilder (Duration: 12.7ms | Allocations: 955)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 201 Created in 220ms (Views: 19.8ms | ActiveRecord: 52.7ms | Allocations: 24854)
+
+
+Started GET "/rails/info/routes" for ::1 at 2022-08-31 20:43:00 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (Duration: 27.6ms | Allocations: 8167)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.5ms | Allocations: 1110)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 37.4ms | Allocations: 13811)
+  Rendered layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb (Duration: 43.9ms | Allocations: 14136)
+Completed 200 OK in 60ms (Views: 47.8ms | ActiveRecord: 0.0ms | Allocations: 17260)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-08-31 20:43:00 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/wallets" for ::1 at 2022-08-31 20:43:45 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 750ms (ActiveRecord: 163.2ms | Allocations: 14887)
+
+
+  
+NameError (undefined local variable or method `curret_user' for #<WalletsController:0x0000000000bce8>
+
+    @wallets = curret_user.wallets
+               ^^^^^^^^^^^
+Did you mean?  current_user
+               @current_user):
+  
+app/controllers/wallets_controller.rb:8:in `index'
+Started GET "/wallets" for ::1 at 2022-08-31 20:45:54 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  Rendering wallets/index.json.jbuilder
+  [1m[36mWallet Load (16.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/wallets/index.json.jbuilder:1
+  Rendered collection of wallets/_wallet.json.jbuilder [0 times] (Duration: 0.4ms | Allocations: 56)
+  Rendered wallets/index.json.jbuilder (Duration: 103.1ms | Allocations: 1330)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 406ms (Views: 91.2ms | ActiveRecord: 165.9ms | Allocations: 10728)
+
+
+Started POST "/wallets" for ::1 at 2022-08-31 20:46:57 +0800
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"wallet3", "user_id"=>3}}
+  [1m[36mUser Load (41.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mWallet Create (27.4ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "wallet3"], ["user_id", 3], ["created_at", "2022-08-31 12:46:58.767998"], ["updated_at", "2022-08-31 12:46:58.767998"]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 960ms (Views: 12.0ms | ActiveRecord: 171.7ms | Allocations: 15671)
+
+
+Started GET "/wallets" for ::1 at 2022-08-31 20:47:04 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  Rendering wallets/index.json.jbuilder
+  [1m[36mWallet Load (3.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/wallets/index.json.jbuilder:1
+  Rendered collection of wallets/_wallet.json.jbuilder [1 times] (Duration: 48.6ms | Allocations: 353)
+  Rendered wallets/index.json.jbuilder (Duration: 77.4ms | Allocations: 1203)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 208ms (Views: 99.8ms | ActiveRecord: 6.8ms | Allocations: 3828)
+
+
+Started GET "/wallets/3" for ::1 at 2022-08-31 20:55:18 +0800
+Processing by WalletsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mWallet Load (6.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:47:in `set_wallet'
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 744ms (Views: 14.8ms | ActiveRecord: 109.1ms | Allocations: 7009)
+
+
+Started GET "/wallets/4" for ::1 at 2022-08-31 20:55:55 +0800
+Processing by WalletsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mWallet Load (4.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:47:in `set_wallet'
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  Rendering wallets/show.json.jbuilder
+  Rendered wallets/_wallet.json.jbuilder (Duration: 26.2ms | Allocations: 163)
+  Rendered wallets/show.json.jbuilder (Duration: 54.1ms | Allocations: 447)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 180ms (Views: 65.8ms | ActiveRecord: 13.8ms | Allocations: 3551)
+
+
+Started POST "/wallets" for ::1 at 2022-08-31 23:12:39 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"wallet3,2"}}
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mWallet Create (16.9ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "wallet3,2"], ["user_id", 3], ["created_at", "2022-08-31 15:12:40.878197"], ["updated_at", "2022-08-31 15:12:40.878197"]]
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 189ms (Views: 0.8ms | ActiveRecord: 45.8ms | Allocations: 22283)
+
+
+Started GET "/wallets" for ::1 at 2022-08-31 23:13:21 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  Rendering wallets/index.json.jbuilder
+  [1m[36mWallet Load (0.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/wallets/index.json.jbuilder:1
+  Rendered collection of wallets/_wallet.json.jbuilder [2 times] (Duration: 6.6ms | Allocations: 494)
+  Rendered wallets/index.json.jbuilder (Duration: 16.0ms | Allocations: 2098)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 24.1ms | ActiveRecord: 1.9ms | Allocations: 6388)
+
+
+Started GET "/rails/info/routes" for ::1 at 2022-08-31 23:41:49 +0800
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (Duration: 146.0ms | Allocations: 8151)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 28.8ms | Allocations: 1109)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 221.9ms | Allocations: 13618)
+  Rendered layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb (Duration: 227.5ms | Allocations: 13939)
+Completed 200 OK in 296ms (Views: 243.1ms | Allocations: 15936)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-08-31 23:41:51 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCryptocurrencies (20220831155643)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (73.8ms)[0m  [1m[35mCREATE TABLE "cryptocurrencies" ("id" bigserial primary key, "currency" character varying, "latest_price" decimal, "quantity" decimal, "total_worth" decimal, "wallet_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_42742da6f0"
+FOREIGN KEY ("wallet_id")
+  REFERENCES "wallets" ("id")
+)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_cryptocurrencies_on_wallet_id" ON "cryptocurrencies" ("wallet_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220831155643"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/rails/info/routes" for ::1 at 2022-09-01 01:38:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [54 times] (Duration: 126.6ms | Allocations: 9114)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.7ms | Allocations: 1110)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 137.2ms | Allocations: 15192)
+  Rendered layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb (Duration: 138.5ms | Allocations: 15517)
+Completed 200 OK in 160ms (Views: 144.2ms | ActiveRecord: 0.0ms | Allocations: 18641)
+
+
+Started GET "/" for ::1 at 2022-09-01 01:40:10 +0800
+Processing by WalletsController#index as HTML
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 45ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 3038)
+
+
+Started GET "/cryptocurrencies" for ::1 at 2022-09-01 01:42:48 +0800
+Processing by CryptocurrenciesController#index as */*
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms | Allocations: 1477)
+
+
+  
+NoMethodError (undefined method `cryptocurrencies' for nil:NilClass
+
+    @cryptocurrencies = @wallet.cryptocurrencies
+                               ^^^^^^^^^^^^^^^^^):
+  
+app/controllers/cryptocurrencies_controller.rb:7:in `index'
+Started GET "/cryptocurrencies" for ::1 at 2022-09-01 01:44:01 +0800
+Processing by CryptocurrenciesController#index as */*
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 2412)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+    @cryptocurrencies = Cryptocurrency.where(wallet_id: @wallet.id)
+                                                               ^^^):
+  
+app/controllers/cryptocurrencies_controller.rb:7:in `index'
+Started GET "/cryptocurrencies" for ::1 at 2022-09-01 01:44:32 +0800
+Processing by CryptocurrenciesController#index as */*
+Completed 500 Internal Server Error in 199587ms (ActiveRecord: 0.0ms | Allocations: 56367)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `index'
+app/controllers/cryptocurrencies_controller.rb:8:in `index'
+Started GET "/cryptocurrencies" for ::1 at 2022-09-01 01:47:59 +0800
+Processing by CryptocurrenciesController#index as */*
+  Rendering cryptocurrencies/index.json.jbuilder
+  [1m[36mCryptocurrency Load (58.3ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies"[0m
+  ↳ app/views/cryptocurrencies/index.json.jbuilder:1
+  Rendered collection of cryptocurrencies/_cryptocurrency.json.jbuilder [0 times] (Duration: 2.3ms | Allocations: 9031)
+  Rendered cryptocurrencies/index.json.jbuilder (Duration: 148.5ms | Allocations: 206749)
+Completed 200 OK in 240ms (Views: 107.1ms | ActiveRecord: 58.3ms | Allocations: 479878)
+
+
+  [1m[36mCryptocurrency Load (9.1ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWallet Load (9.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCryptocurrency Create (19.1ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("currency", "latest_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["currency", "BTC"], ["latest_price", "12345.67"], ["quantity", "1.0"], ["total_worth", "12345.67"], ["wallet_id", 4], ["created_at", "2022-09-01 11:08:22.416948"], ["updated_at", "2022-09-01 11:08:22.416948"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCryptocurrency Load (0.5ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies"[0m
+Started GET "/rails/info/routes" for ::1 at 2022-09-01 19:10:31 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [54 times] (Duration: 88.8ms | Allocations: 9114)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.0ms | Allocations: 1110)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 99.7ms | Allocations: 15192)
+  Rendered layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb (Duration: 101.9ms | Allocations: 15517)
+Completed 200 OK in 132ms (Views: 112.4ms | ActiveRecord: 0.0ms | Allocations: 18641)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-09-01 19:10:32 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/wallets" for ::1 at 2022-09-01 20:13:17 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#create as */*
+  Parameters: {"wallet"=>{"overall_worth"=>10000, "wallet_type"=>"wallettest1"}}
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "test3@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:15:in `create'
+  [1m[36mWallet Create (306.0ms)[0m  [1m[32mINSERT INTO "wallets" ("overall_worth", "wallet_type", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["overall_worth", "10000.0"], ["wallet_type", "wallettest1"], ["user_id", 3], ["created_at", "2022-09-01 12:13:18.113176"], ["updated_at", "2022-09-01 12:13:18.113176"]]
+  ↳ app/controllers/wallets_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 494ms (Views: 1.6ms | ActiveRecord: 370.6ms | Allocations: 22421)
+
+
