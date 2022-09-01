@@ -12,8 +12,8 @@ class WalletsController < ApplicationController
   def create
     @wallet = Wallet.new(wallet_params)
     @wallet.user_id = current_user.id
-    puts current_user.inspect
-    puts wallet_params
+    # puts current_user.inspect
+    # puts wallet_params
     if @wallet.save
       render json: @wallet
     else
