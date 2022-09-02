@@ -24,7 +24,9 @@ class CryptocurrenciesController < ApplicationController
   #     render json: @cryptocurrency.errors, status: :unprocessable_entity
   #   end
   # end
-
+  # unless Cryptocurrency.find_by(symbol: params[:cryptocurrency][:symbol].downcase).nil?
+  #   render json: Cryptocurrency.find_by(symbol: params[:cryptocurrency][:symbol].downcase)
+  # else
     cryptocurrency = search(params[:cryptocurrency][:symbol])
     if cryptocurrency['symbol'] == (params[:cryptocurrency][:symbol])
       @cryptocurrency = @wallet.cryptocurrencies.build(

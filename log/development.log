@@ -3819,3 +3819,97 @@ Processing by CryptocurrenciesController#index as */*
 Completed 200 OK in 29ms (Views: 16.7ms | ActiveRecord: 4.3ms | Allocations: 2818)
 
 
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 18:21:49 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (1.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:72:in `set_wallet'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:39:in `create'
+  [1m[36mCryptocurrency Create (17.5ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "20145.0"], ["buy_price", "1.0"], ["quantity", "10.0"], ["total_worth", "10.0"], ["wallet_id", 1], ["created_at", "2022-09-02 10:21:51.273440"], ["updated_at", "2022-09-02 10:21:51.273440"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:39:in `create'
+Completed 200 OK in 1259ms (Views: 1.1ms | ActiveRecord: 50.2ms | Allocations: 31898)
+
+
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (4.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" ORDER BY "wallets"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 20:02:42 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (26.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (2.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:75:in `set_wallet'
+  [1m[36mCryptocurrency Load (16.2ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "BTC"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+  [1m[36mCryptocurrency Create (19.2ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "20059.0"], ["buy_price", "1.0"], ["quantity", "1.0"], ["total_worth", "10.0"], ["wallet_id", 1], ["created_at", "2022-09-02 12:02:44.426286"], ["updated_at", "2022-09-02 12:02:44.426286"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+Completed 200 OK in 1178ms (Views: 7.2ms | ActiveRecord: 81.2ms | Allocations: 32566)
+
+
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 20:03:01 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (10.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:75:in `set_wallet'
+  [1m[36mCryptocurrency Load (3.0ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "BTC"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+  [1m[36mCryptocurrency Create (11.9ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "20059.0"], ["buy_price", "1.0"], ["quantity", "1.0"], ["total_worth", "10.0"], ["wallet_id", 1], ["created_at", "2022-09-02 12:03:02.575506"], ["updated_at", "2022-09-02 12:03:02.575506"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:41:in `create'
+Completed 200 OK in 679ms (Views: 0.6ms | ActiveRecord: 38.5ms | Allocations: 16079)
+
+
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 20:03:31 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (5.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:76:in `set_wallet'
+  [1m[36mCryptocurrency Load (2.2ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "BTC"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mCACHE Cryptocurrency Load (0.1ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "BTC"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mCACHE Cryptocurrency Load (0.0ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "BTC"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+Completed 500 Internal Server Error in 298676ms (Views: 0.5ms | ActiveRecord: 157.5ms | Allocations: 75530)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/cryptocurrencies_controller.rb:28:in `create'
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 20:08:42 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (3.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:75:in `set_wallet'
+  [1m[36mCryptocurrency Load (2.2ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "btc"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:27:in `create'
+  [1m[36mCACHE Cryptocurrency Load (0.3ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "btc"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:28:in `create'
+Completed 200 OK in 510ms (Views: 16.4ms | ActiveRecord: 106.6ms | Allocations: 2556563)
+
+
+Started POST "/wallets/1/cryptocurrencies" for ::1 at 2022-09-02 20:09:42 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"1"}
+  [1m[36mWallet Load (2.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:75:in `set_wallet'
+  [1m[36mCryptocurrency Load (6.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "btc"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:27:in `create'
+  [1m[36mCACHE Cryptocurrency Load (0.5ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."symbol" = $1 LIMIT $2[0m  [["symbol", "btc"], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:28:in `create'
+Completed 200 OK in 106ms (Views: 29.3ms | ActiveRecord: 9.0ms | Allocations: 694396)
+
+
