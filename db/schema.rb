@@ -15,8 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_155643) do
   enable_extension "plpgsql"
 
   create_table "cryptocurrencies", force: :cascade do |t|
-    t.string "currency"
-    t.decimal "latest_price"
+    t.string "coingecko_id"
+    t.string "symbol"
+    t.decimal "price"
+    t.decimal "buy_price"
     t.decimal "quantity"
     t.decimal "total_worth"
     t.bigint "wallet_id", null: false
