@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :cryptocurrencies
-  resources :wallets
+  resources :wallets do 
+    resources :cryptocurrencies
+  end
   mount_devise_token_auth_for 'User', at: 'auth'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,21 +1,16 @@
 class CryptocurrenciesController < ApplicationController
+  before_action :set_wallet
   before_action :set_cryptocurrency, only: %i[ show update destroy ]
 
-  # GET /cryptocurrencies
-  # GET /cryptocurrencies.json
   def index
-    @cryptocurrencies = Cryptocurrency.all
+    render json: @wallet.cryptocurrencies
   end
 
-  # GET /cryptocurrencies/1
-  # GET /cryptocurrencies/1.json
   def show
   end
 
-  # POST /cryptocurrencies
-  # POST /cryptocurrencies.json
   def create
-    @cryptocurrency = Cryptocurrency.new(cryptocurrency_params)
+    @cryptocurrency = @wallet.cryptocurrencies.build(cryptocurrency_params)
 
     if @cryptocurrency.save
       render json: @cryptocurrency
@@ -24,8 +19,6 @@ class CryptocurrenciesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cryptocurrencies/1
-  # PATCH/PUT /cryptocurrencies/1.json
   def update
     if @cryptocurrency.update(cryptocurrency_params)
       render json: @cryptocurrency
@@ -41,12 +34,14 @@ class CryptocurrenciesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_wallet 
+      @wallet = Wallet.find(params[:wallet_id])
+    end
+
     def set_cryptocurrency
       @cryptocurrency = Cryptocurrency.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def cryptocurrency_params
       params.require(:cryptocurrency).permit(:currency, :latest_price, :quantity, :total_worth, :wallet_id)
     end
