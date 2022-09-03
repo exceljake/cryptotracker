@@ -11,7 +11,7 @@ class CryptocurrenciesController < ApplicationController
   end
 
   def show
-
+    render json: @cryptocurrency
   end
 
   def create
@@ -76,9 +76,14 @@ class CryptocurrenciesController < ApplicationController
 
     def set_cryptocurrency
       @cryptocurrency = Cryptocurrency.find(params[:id])
+      @cryptocurrency.update(price: price(@cryptocurrency.coingecko_id))
     end
 
     def cryptocurrency_params
       params.require(:cryptocurrency).permit(:coingecko_id, :symbol, :price, :buy_price, :quantity, :total_worth)
     end
 end
+
+    # def update_price(cryptocurrency)
+    #   latest_prices = price(cryptocurrency.coingecko_id)
+    # end

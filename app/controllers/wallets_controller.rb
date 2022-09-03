@@ -37,9 +37,18 @@ class WalletsController < ApplicationController
 
     def set_wallet
       @wallet = Wallet.find(params[:id])
+      @wallet.update(overall_worth: compute_overall_worth(@wallet))
     end
 
     def wallet_params
-      params.require(:wallet).permit(:overall_worth, :wallet_type)
+      params.require(:wallet).permit(:wallet_type)
+    end
+
+    def compute_overall_worth(wallet)
+      overall_worth = 0 
+      wallet.cryptocurrencies.each do |cryptocurrency| 
+        overall_worth += cryptocurrency.quantity * cryptocurrency.price 
+      end 
+      overall_worth
     end
 end
