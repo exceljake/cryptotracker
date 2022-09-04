@@ -7,6 +7,7 @@ class WalletsController < ApplicationController
   end
 
   def show
+    render json: @wallet
   end
 
   def create

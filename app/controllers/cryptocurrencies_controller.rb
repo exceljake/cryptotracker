@@ -15,18 +15,6 @@ class CryptocurrenciesController < ApplicationController
   end
 
   def create
-
-  #   @cryptocurrency = @wallet.cryptocurrencies.build(cryptocurrency_params)
-
-  #   if @cryptocurrency.save
-  #     render json: @cryptocurrency
-  #   else
-  #     render json: @cryptocurrency.errors, status: :unprocessable_entity
-  #   end
-  # end
-  # unless Cryptocurrency.find_by(symbol: params[:cryptocurrency][:symbol].downcase).nil?
-  #   render json: Cryptocurrency.find_by(symbol: params[:cryptocurrency][:symbol].downcase)
-  # else
     cryptocurrency = search(params[:cryptocurrency][:symbol])
     if cryptocurrency['symbol'] == (params[:cryptocurrency][:symbol])
       @cryptocurrency = @wallet.cryptocurrencies.build(
@@ -37,7 +25,6 @@ class CryptocurrenciesController < ApplicationController
           quantity: (params[:cryptocurrency][:quantity]),
           total_worth: (params[:cryptocurrency][:total_worth]),
         )
-      # render json: Cryptocurrency.find_by(symbol: (params[:cryptocurrency][:symbol]))
       if @cryptocurrency.save
         render json: @cryptocurrency
       else
@@ -53,8 +40,7 @@ class CryptocurrenciesController < ApplicationController
       render json: @cryptocurrency.errors, status: :unprocessable_entity
     end
   end
-  # DELETE /cryptocurrencies/1
-  # DELETE /cryptocurrencies/1.json
+ 
   def destroy
     @cryptocurrency.destroy
   end
@@ -83,7 +69,3 @@ class CryptocurrenciesController < ApplicationController
       params.require(:cryptocurrency).permit(:coingecko_id, :symbol, :price, :buy_price, :quantity, :total_worth)
     end
 end
-
-    # def update_price(cryptocurrency)
-    #   latest_prices = price(cryptocurrency.coingecko_id)
-    # end

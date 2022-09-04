@@ -5143,3 +5143,67 @@ Processing by WalletsController#show as */*
 Completed 200 OK in 372ms (Views: 31.7ms | ActiveRecord: 65.2ms | Allocations: 18621)
 
 
+Started GET "/wallets/1" for ::1 at 2022-09-03 12:34:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (4.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mCryptocurrency Load (2.6ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:50:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 318ms (Views: 1.9ms | ActiveRecord: 61.6ms | Allocations: 31335)
+
+
+Started DELETE "/wallets/1" for ::1 at 2022-09-03 12:49:08 +0800
+Processing by WalletsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (4.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mCryptocurrency Load (3.6ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:50:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:41:in `set_wallet'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:34:in `destroy'
+  [1m[36mCryptocurrency Destroy (6.8ms)[0m  [1m[31mDELETE FROM "cryptocurrencies" WHERE "cryptocurrencies"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/wallets_controller.rb:34:in `destroy'
+  [1m[36mCryptocurrency Destroy (0.5ms)[0m  [1m[31mDELETE FROM "cryptocurrencies" WHERE "cryptocurrencies"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:34:in `destroy'
+  [1m[36mWallet Destroy (13.6ms)[0m  [1m[31mDELETE FROM "wallets" WHERE "wallets"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/wallets_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:34:in `destroy'
+No template found for WalletsController#destroy, rendering head :no_content
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1061ms (ActiveRecord: 149.7ms | Allocations: 17436)
+
+
+Started GET "/wallets" for ::1 at 2022-09-03 12:50:58 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (47.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 454ms (Views: 15.5ms | ActiveRecord: 47.3ms | Allocations: 3779)
+
+
+Started GET "/wallets" for ::1 at 2022-09-03 12:51:45 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (32.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (5.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:6:in `index'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1436ms (Views: 77.8ms | ActiveRecord: 40.4ms | Allocations: 3047)
+
+
