@@ -44,7 +44,7 @@ class CryptocurrenciesController < ApplicationController
   end
  
   def destroy
-    Cryptocurrency.where(symbol: @cryptocurrency.symbol).destroy_all
+    @wallet.cryptocurrencies.where(symbol: @cryptocurrency.symbol).destroy_all
   end
 
   private
