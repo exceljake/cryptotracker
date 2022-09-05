@@ -13,8 +13,7 @@ class WalletsController < ApplicationController
   def create
     @wallet = Wallet.new(wallet_params)
     @wallet.user_id = current_user.id
-    # puts current_user.inspect
-    # puts wallet_params
+
     if @wallet.save
       render json: @wallet
     else
@@ -38,7 +37,8 @@ class WalletsController < ApplicationController
 
     def set_wallet
       @wallet = Wallet.find(params[:id])
-      @wallet.update(overall_worth: compute_overall_worth(@wallet))
+      @wallet.update(overall_worth: compute_overall_worth(@wallet), overall_pnl: compute_overall_pnl(@wallet))
+
     end
 
     def wallet_params
@@ -52,4 +52,13 @@ class WalletsController < ApplicationController
       end 
       overall_worth
     end
+
+    def compute_overall_pnl(wallet)
+      overall_pnl = 0 
+      wallet.cryptocurrencies.each do |cryptocurrency| 
+        overall_pnl += cryptocurrency.quantity * cryptocurrency.price - cryptocurrency.quantity * cryptocurrency.buy_price
+      end 
+      overall_pnl
+    end
+
 end

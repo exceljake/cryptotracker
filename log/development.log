@@ -5363,3 +5363,73 @@ Processing by WalletsController#index as */*
 Completed 200 OK in 14ms (Views: 4.3ms | ActiveRecord: 1.1ms | Allocations: 3103)
 
 
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWallets (20220827040254)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.6ms)[0m  [1m[35mDROP TABLE "wallets"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddOverallPnlToWallets (20220905092501)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.8ms)[0m  [1m[35mALTER TABLE "wallets" ADD "overall_pnl" decimal DEFAULT 0.0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220905092501"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5653197338055910755)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/wallets" for ::1 at 2022-09-05 17:29:37 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (2.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:6:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 149ms (Views: 9.3ms | ActiveRecord: 42.3ms | Allocations: 19014)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 17:29:54 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (8.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:6:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 3.3ms | ActiveRecord: 9.7ms | Allocations: 3426)
+
+
+Started GET "/wallets/2" for ::1 at 2022-09-05 17:30:00 +0800
+Processing by WalletsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:39:in `set_wallet'
+  [1m[36mCryptocurrency Load (2.2ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:50:in `compute_overall_worth'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mWallet Update (16.9ms)[0m  [1m[33mUPDATE "wallets" SET "updated_at" = $1, "overall_pnl" = $2 WHERE "wallets"."id" = $3[0m  [["updated_at", "2022-09-05 09:30:00.552004"], ["overall_pnl", "553.8"], ["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:40:in `set_wallet'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 0.6ms | ActiveRecord: 35.1ms | Allocations: 21839)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 17:30:06 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:6:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 4.6ms | ActiveRecord: 1.9ms | Allocations: 3162)
+
+
