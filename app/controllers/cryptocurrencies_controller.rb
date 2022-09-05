@@ -22,8 +22,7 @@ class CryptocurrenciesController < ApplicationController
           price: price(cryptocurrency['id']),
           coingecko_id: cryptocurrency['id'],
           buy_price: (params[:cryptocurrency][:buy_price]), 
-          quantity: (params[:cryptocurrency][:quantity]),
-          total_worth: (params[:cryptocurrency][:total_worth]),
+          quantity: (params[:cryptocurrency][:quantity])
         )
       if @cryptocurrency.save
         render json: @cryptocurrency
@@ -66,6 +65,6 @@ class CryptocurrenciesController < ApplicationController
     end
 
     def cryptocurrency_params
-      params.require(:cryptocurrency).permit(:coingecko_id, :symbol, :price, :buy_price, :quantity, :total_worth)
+      params.require(:cryptocurrency).permit(:coingecko_id, :symbol, :price, :buy_price, :quantity)
     end
 end
