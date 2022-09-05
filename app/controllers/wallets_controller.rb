@@ -1,9 +1,20 @@
+require 'rest-client'
+
+COINGECKO_URL = 'https://api.coingecko.com/api/v3'
+
 class WalletsController < ApplicationController
   before_action :set_wallet, only: %i[ show update destroy ]
   before_action :authenticate_user!
 
   def index
-    render json: Wallet.where(user_id: current_user.id)
+    @wallets = Wallet.where(user_id: current_user.id)
+    @wallets.each do |wallet|
+      wallet.cryptocurrencies.each do |cryptocurrency|
+        cryptocurrency.update(price: price(cryptocurrency.coingecko_id))
+      end
+      wallet.update(overall_worth: compute_overall_worth(wallet), overall_pnl: compute_overall_pnl(wallet))
+    end
+    render json: @wallets
   end
 
   def show
@@ -34,6 +45,11 @@ class WalletsController < ApplicationController
   end
 
   private
+
+  def price(name)
+    url = "#{COINGECKO_URL}/simple/price?ids=#{name}&vs_currencies=usd"
+    JSON.parse(RestClient.get(url).body)[name]['usd']
+  end
 
     def set_wallet
       @wallet = Wallet.find(params[:id])

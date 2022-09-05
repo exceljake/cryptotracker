@@ -7,6 +7,9 @@ class CryptocurrenciesController < ApplicationController
   before_action :set_cryptocurrency, only: %i[ show update destroy ]
 
   def index
+    @wallet.cryptocurrencies.each do |cryptocurrency|
+      cryptocurrency.update(price: price(cryptocurrency.coingecko_id))
+    end
     render json: @wallet.cryptocurrencies
   end
 

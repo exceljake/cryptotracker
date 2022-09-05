@@ -5433,3 +5433,414 @@ Processing by WalletsController#index as */*
 Completed 200 OK in 13ms (Views: 4.6ms | ActiveRecord: 1.9ms | Allocations: 3162)
 
 
+Started GET "/" for ::1 at 2022-09-05 18:02:53 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#index as HTML
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 73ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 3187)
+
+
+Started GET "/rails/info/routes" for ::1 at 2022-09-05 18:02:56 +0800
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [54 times] (Duration: 48.1ms | Allocations: 9115)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionpack-7.0.3.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 6.4ms | Allocations: 1109)
+  Rendered /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 75.8ms | Allocations: 15219)
+  Rendered layout /home/engr_edceljakeaquino/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/layouts/application.html.erb (Duration: 78.4ms | Allocations: 15544)
+Completed 200 OK in 170ms (Views: 103.7ms | ActiveRecord: 0.0ms | Allocations: 18509)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-09-05 18:02:56 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:06:28 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (4.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+Completed 404 Not Found in 313ms (ActiveRecord: 147.2ms | Allocations: 9536)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Cryptocurrency without an ID):
+  
+app/controllers/cryptocurrencies_controller.rb:63:in `set_cryptocurrency'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:07:21 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (5.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+  [1m[36mCryptocurrency Load (15.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+Completed 200 OK in 384ms (Views: 83.1ms | ActiveRecord: 146.3ms | Allocations: 13921)
+
+
+Started GET "/wallets/1/cryptocurrencies/2" for ::1 at 2022-09-05 18:07:42 +0800
+Processing by CryptocurrenciesController#show as */*
+  Parameters: {"wallet_id"=>"1", "id"=>"2"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+Completed 404 Not Found in 12ms (ActiveRecord: 0.4ms | Allocations: 1209)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Wallet with 'id'=1):
+  
+app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+Started GET "/wallets/2/cryptocurrencies/3" for ::1 at 2022-09-05 18:07:55 +0800
+Processing by CryptocurrenciesController#show as */*
+  Parameters: {"wallet_id"=>"2", "id"=>"3"}
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+  [1m[36mCryptocurrency Load (0.5ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:63:in `set_cryptocurrency'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_cryptocurrency'
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_cryptocurrency'
+  [1m[36mCryptocurrency Update (23.9ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19785.41"], ["updated_at", "2022-09-05 10:07:55.899623"], ["id", 3]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_cryptocurrency'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_cryptocurrency'
+Completed 200 OK in 657ms (Views: 2.8ms | ActiveRecord: 31.4ms | Allocations: 14779)
+
+
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:08:13 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:59:in `set_wallet'
+  [1m[36mCryptocurrency Load (4.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+Completed 200 OK in 13ms (Views: 4.4ms | ActiveRecord: 4.9ms | Allocations: 1867)
+
+
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:15:37 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (2.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:63:in `set_wallet'
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 29.3ms | Allocations: 8833)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/cryptocurrencies_controller.rb:57:in `price'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:18:59 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (3.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (6.9ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (16.2ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19789.27"], ["updated_at", "2022-09-05 10:19:01.689058"], ["id", 3]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (0.6ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19789.27"], ["updated_at", "2022-09-05 10:19:02.023143"], ["id", 4]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+Completed 200 OK in 1210ms (Views: 5.9ms | ActiveRecord: 138.1ms | Allocations: 24656)
+
+
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:19:52 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (0.6ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (5.4ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19792.37"], ["updated_at", "2022-09-05 10:19:53.003401"], ["id", 3]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (1.5ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19792.37"], ["updated_at", "2022-09-05 10:19:53.282111"], ["id", 4]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+Completed 200 OK in 586ms (Views: 0.8ms | ActiveRecord: 21.9ms | Allocations: 10149)
+
+
+Started GET "/wallets/2/cryptocurrencies/3" for ::1 at 2022-09-05 18:20:48 +0800
+Processing by CryptocurrenciesController#show as */*
+  Parameters: {"wallet_id"=>"2", "id"=>"3"}
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (0.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:66:in `set_cryptocurrency'
+Completed 200 OK in 60ms (Views: 1.5ms | ActiveRecord: 16.4ms | Allocations: 9097)
+
+
+Started GET "/wallets/2/cryptocurrencies/3" for ::1 at 2022-09-05 18:21:05 +0800
+Processing by CryptocurrenciesController#show as */*
+  Parameters: {"wallet_id"=>"2", "id"=>"3"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (0.3ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:66:in `set_cryptocurrency'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1453)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:23:08 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 371ms (ActiveRecord: 124.0ms | Allocations: 10415)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass
+
+    @wallets.each do |wallet|
+            ^^^^^):
+  
+app/controllers/wallets_controller.rb:6:in `index'
+Started GET "/wallets" for ::1 at 2022-09-05 18:23:43 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 6.6ms | Allocations: 8102)
+
+
+  
+NameError (uninitialized constant WalletsController::Wallets
+
+    Wallets.each do |wallet|
+    ^^^^^^^):
+  
+app/controllers/wallets_controller.rb:6:in `index'
+Started GET "/wallets" for ::1 at 2022-09-05 18:25:05 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 7.3ms | Allocations: 10524)
+
+
+  
+NoMethodError (undefined method `each' for Wallet:Class):
+  
+app/controllers/wallets_controller.rb:6:in `index'
+Started GET "/wallets" for ::1 at 2022-09-05 18:26:29 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (1.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:7:in `index'
+  [1m[36mCryptocurrency Load (5.8ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mWallet Update (14.3ms)[0m  [1m[33mUPDATE "wallets" SET "overall_worth" = $1, "updated_at" = $2, "overall_pnl" = $3 WHERE "wallets"."id" = $4[0m  [["overall_worth", "39584.74"], ["updated_at", "2022-09-05 10:26:31.415063"], ["overall_pnl", "584.74"], ["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 526ms (Views: 9.4ms | ActiveRecord: 138.9ms | Allocations: 20835)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:26:55 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:7:in `index'
+  [1m[36mCryptocurrency Load (1.0ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 253ms (Views: 0.5ms | ActiveRecord: 4.2ms | Allocations: 6024)
+
+
+Started GET "/wallets/2" for ::1 at 2022-09-05 18:27:07 +0800
+Processing by WalletsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (2.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:43:in `set_wallet'
+  [1m[36mCryptocurrency Load (1.0ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:44:in `set_wallet'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:44:in `set_wallet'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:44:in `set_wallet'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 0.6ms | ActiveRecord: 7.0ms | Allocations: 6429)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:27:45 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:7:in `index'
+  [1m[36mCryptocurrency Load (0.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 0.5ms | ActiveRecord: 4.0ms | Allocations: 5943)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:27:48 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:7:in `index'
+  [1m[36mCryptocurrency Load (0.3ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 144ms (Views: 2.6ms | ActiveRecord: 13.8ms | Allocations: 5946)
+
+
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:28:00 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (0.8ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (1.3ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19787.44"], ["updated_at", "2022-09-05 10:28:01.341956"], ["id", 3]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (1.1ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19787.44"], ["updated_at", "2022-09-05 10:28:01.624746"], ["id", 4]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+Completed 200 OK in 1148ms (Views: 0.9ms | ActiveRecord: 11.0ms | Allocations: 10851)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:28:10 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:7:in `index'
+  [1m[36mCryptocurrency Load (0.7ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:53:in `compute_overall_worth'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mWallet Update (3.1ms)[0m  [1m[33mUPDATE "wallets" SET "overall_worth" = $1, "updated_at" = $2, "overall_pnl" = $3 WHERE "wallets"."id" = $4[0m  [["overall_worth", "39574.88"], ["updated_at", "2022-09-05 10:28:10.625347"], ["overall_pnl", "574.88"], ["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:8:in `block in index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 0.7ms | ActiveRecord: 13.9ms | Allocations: 6704)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:31:36 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 457ms (ActiveRecord: 142.1ms | Allocations: 8558)
+
+
+  
+NoMethodError (undefined method `cryptocurrencies' for nil:NilClass
+
+    @wallet.cryptocurrencies.each do |cryptocurrency|
+           ^^^^^^^^^^^^^^^^^):
+  
+app/controllers/wallets_controller.rb:11:in `index'
+Started GET "/wallets" for ::1 at 2022-09-05 18:33:39 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (3.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:11:in `index'
+  [1m[36mCryptocurrency Load (4.2ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:12:in `block in index'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mCryptocurrency Update (18.2ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19776.69"], ["updated_at", "2022-09-05 10:33:41.156002"], ["id", 3]]
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mCryptocurrency Update (1.0ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19776.69"], ["updated_at", "2022-09-05 10:33:41.458860"], ["id", 4]]
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mWallet Update (4.4ms)[0m  [1m[33mUPDATE "wallets" SET "overall_worth" = $1, "updated_at" = $2, "overall_pnl" = $3 WHERE "wallets"."id" = $4[0m  [["overall_worth", "39553.38"], ["updated_at", "2022-09-05 10:33:41.499166"], ["overall_pnl", "553.38"], ["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1088ms (Views: 4.7ms | ActiveRecord: 121.3ms | Allocations: 29425)
+
+
+Started GET "/wallets" for ::1 at 2022-09-05 18:33:59 +0800
+Processing by WalletsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "ed1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/wallets_controller.rb:11:in `index'
+  [1m[36mCryptocurrency Load (0.4ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/wallets_controller.rb:12:in `block in index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mCryptocurrency Update (0.8ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19772.94"], ["updated_at", "2022-09-05 10:34:00.135142"], ["id", 3]]
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mCryptocurrency Update (3.4ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19772.94"], ["updated_at", "2022-09-05 10:34:00.362659"], ["id", 4]]
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:13:in `block (2 levels) in index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mWallet Update (0.9ms)[0m  [1m[33mUPDATE "wallets" SET "overall_worth" = $1, "updated_at" = $2, "overall_pnl" = $3 WHERE "wallets"."id" = $4[0m  [["overall_worth", "39545.88"], ["updated_at", "2022-09-05 10:34:00.385561"], ["overall_pnl", "545.88"], ["id", 2]]
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallets_controller.rb:15:in `block in index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 530ms (Views: 0.3ms | ActiveRecord: 14.3ms | Allocations: 15131)
+
+
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-05 18:34:32 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:62:in `set_wallet'
+  [1m[36mCryptocurrency Load (2.6ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+Completed 200 OK in 465ms (Views: 0.8ms | ActiveRecord: 3.1ms | Allocations: 7739)
+
+
