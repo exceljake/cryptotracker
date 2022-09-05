@@ -38,7 +38,6 @@ class WalletsController < ApplicationController
     def set_wallet
       @wallet = Wallet.find(params[:id])
       @wallet.update(overall_worth: compute_overall_worth(@wallet), overall_pnl: compute_overall_pnl(@wallet))
-
     end
 
     def wallet_params
@@ -60,5 +59,4 @@ class WalletsController < ApplicationController
       end 
       overall_pnl
     end
-
 end
