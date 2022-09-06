@@ -7231,3 +7231,12 @@ Processing by CryptocurrenciesController#create as */*
 Completed 422 Unprocessable Entity in 1423ms (Views: 43.5ms | ActiveRecord: 15.4ms | Allocations: 3375847)
 
 
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:55:09 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.8ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:65:in `set_wallet'
+Completed 422 Unprocessable Entity in 45ms (Views: 0.8ms | ActiveRecord: 26.3ms | Allocations: 8241)
+
+
