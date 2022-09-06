@@ -18,7 +18,7 @@ class CryptocurrenciesController < ApplicationController
   end
 
   def create
-    if params[:cryptocurrency][:symbol] == nil
+    if params[:cryptocurrency][:symbol] == ""
       render json: {symbol: ["can't be blank"]}, status: :unprocessable_entity
     else 
       cryptocurrency = search(params[:cryptocurrency][:symbol])
