@@ -18,22 +18,28 @@ class CryptocurrenciesController < ApplicationController
   end
 
   def create
-    cryptocurrency = search(params[:cryptocurrency][:symbol])
-    if cryptocurrency['symbol'] == (params[:cryptocurrency][:symbol])
-      @cryptocurrency = @wallet.cryptocurrencies.build(
+    # if params[:cryptocurrency][:symbol, :buy_price, :quantity] == ""
+    #   render json: @cryptocurrency.errors, status: :unprocessable_entity
+    # else
+    if params[:cryptocurrency][:symbol] == nil
+      render json: {symbol: ["can't be blank"]}
+    else 
+      cryptocurrency = search(params[:cryptocurrency][:symbol])
+      cryptocurrency['symbol'] == (params[:cryptocurrency][:symbol])
+        @cryptocurrency = @wallet.cryptocurrencies.build(
           symbol: cryptocurrency['symbol'].downcase,
           price: price(cryptocurrency['id']),
           coingecko_id: cryptocurrency['id'],
           buy_price: (params[:cryptocurrency][:buy_price]), 
           quantity: (params[:cryptocurrency][:quantity])
-        )
-      if @cryptocurrency.save
-        render json: @cryptocurrency
-      else
-        render json: @cryptocurrency.errors, status: :unprocessable_entity
+          )
+        if @cryptocurrency.save
+          render json: @cryptocurrency
+        else
+          render json: @cryptocurrency.errors, status: :unprocessable_entity
+        end
       end
     end
-  end
 
   def update
     if @cryptocurrency.update(cryptocurrency_params)

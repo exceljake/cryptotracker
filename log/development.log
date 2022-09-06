@@ -6916,3 +6916,318 @@ Processing by CryptocurrenciesController#create as */*
 Completed 200 OK in 937ms (Views: 2.4ms | ActiveRecord: 169.2ms | Allocations: 23304)
 
 
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:13:37 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:76: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:76: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:76: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:76: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:14:59 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:15:24 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:16:13 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+    else
+    ^~~~
+):
+  
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:24:07 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `then' or ';' or '\n'
+...ryptocurrency][:symbol] == nil, params[:cryptocurrency][:buy...
+...                              ^
+/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `end'
+...tocurrency][:buy_price] == nil, params[:cryptocurrency][:qua...
+...                              ^
+/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+    else
+    ^~~~
+):
+  
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `then' or ';' or '\n'
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `end'
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `then' or ';' or '\n'
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `end'
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `then' or ';' or '\n'
+app/controllers/cryptocurrencies_controller.rb:21: syntax error, unexpected ',', expecting `end'
+app/controllers/cryptocurrencies_controller.rb:24: else without rescue is useless
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:24:45 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:78: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:26:06 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:75: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:75: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:75: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:75: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:27:10 +0800
+Processing by CryptocurrenciesController#index as */*
+  Parameters: {"wallet_id"=>"2"}
+  [1m[36mWallet Load (2.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:65:in `set_wallet'
+  [1m[36mCryptocurrency Load (3.0ms)[0m  [1m[34mSELECT "cryptocurrencies".* FROM "cryptocurrencies" WHERE "cryptocurrencies"."wallet_id" = $1[0m  [["wallet_id", 2]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:10:in `index'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (15.3ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19962.91"], ["updated_at", "2022-09-06 12:27:11.712736"], ["id", 15]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mCryptocurrency Update (0.5ms)[0m  [1m[33mUPDATE "cryptocurrencies" SET "price" = $1, "updated_at" = $2 WHERE "cryptocurrencies"."id" = $3[0m  [["price", "19962.91"], ["updated_at", "2022-09-06 12:27:12.038946"], ["id", 4]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:11:in `block in index'
+Completed 200 OK in 1662ms (Views: 6.9ms | ActiveRecord: 169.5ms | Allocations: 34960)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:27:20 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:65:in `set_wallet'
+Completed 422 Unprocessable Entity in 1978ms (Views: 51.7ms | ActiveRecord: 1.2ms | Allocations: 16812)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:27:38 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:65:in `set_wallet'
+No template found for CryptocurrenciesController#create, rendering head :no_content
+Completed 204 No Content in 1606ms (ActiveRecord: 0.4ms | Allocations: 105844)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:29:45 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:29:53 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/cryptocurrencies_controller.rb:77: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:30:15 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (48.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:66:in `set_wallet'
+Completed 500 Internal Server Error in 158724ms (ActiveRecord: 208.0ms | Allocations: 73337)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/cryptocurrencies_controller.rb:25:in `create'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:33:02 +0800
+  
+SyntaxError (/home/engr_edceljakeaquino/cryptotracker/app/controllers/cryptocurrencies_controller.rb:37: syntax error, unexpected `else', expecting `end'
+      else
+      ^~~~
+):
+  
+app/controllers/cryptocurrencies_controller.rb:37: syntax error, unexpected `else', expecting `end'
+app/controllers/cryptocurrencies_controller.rb:37: syntax error, unexpected `else', expecting `end'
+app/controllers/cryptocurrencies_controller.rb:37: syntax error, unexpected `else', expecting `end'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:33:36 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (5.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:67:in `set_wallet'
+Completed 500 Internal Server Error in 1559ms (ActiveRecord: 117.3ms | Allocations: 5133983)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+        render json: @cryptocurrency.errors, status: :unprocessable_entity
+                                    ^^^^^^^):
+  
+app/controllers/cryptocurrencies_controller.rb:39:in `create'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:35:02 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (3.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_wallet'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+  [1m[36mCryptocurrency Create (20.5ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "19953.22"], ["buy_price", "22000.0"], ["quantity", "1.0"], ["total_worth", nil], ["wallet_id", 2], ["created_at", "2022-09-06 12:35:07.900996"], ["updated_at", "2022-09-06 12:35:07.900996"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+Completed 200 OK in 2036ms (Views: 38.9ms | ActiveRecord: 139.4ms | Allocations: 5884525)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:35:31 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_wallet'
+Completed 422 Unprocessable Entity in 1272ms (Views: 55.6ms | ActiveRecord: 1.5ms | Allocations: 2017707)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:35:46 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_wallet'
+Completed 422 Unprocessable Entity in 1089ms (Views: 21.0ms | ActiveRecord: 1.6ms | Allocations: 2036051)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:36:03 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (15.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_wallet'
+Completed 422 Unprocessable Entity in 717ms (Views: 25.5ms | ActiveRecord: 15.6ms | Allocations: 1613982)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:36:15 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:64:in `set_wallet'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+  [1m[36mCryptocurrency Create (5.3ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "19953.22"], ["buy_price", "22000.0"], ["quantity", "1.0"], ["total_worth", nil], ["wallet_id", 2], ["created_at", "2022-09-06 12:36:16.505215"], ["updated_at", "2022-09-06 12:36:16.505215"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:33:in `create'
+Completed 200 OK in 1204ms (Views: 7.4ms | ActiveRecord: 11.1ms | Allocations: 2545251)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:40:18 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (13.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 500 Internal Server Error in 497ms (ActiveRecord: 136.7ms | Allocations: 1835893)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 1)):
+  
+app/controllers/cryptocurrencies_controller.rb:24:in `create'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:41:00 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+  [1m[36mCryptocurrency Create (26.4ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "19951.95"], ["buy_price", "22000.0"], ["quantity", "1.0"], ["total_worth", nil], ["wallet_id", 2], ["created_at", "2022-09-06 12:41:06.033171"], ["updated_at", "2022-09-06 12:41:06.033171"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+Completed 200 OK in 2809ms (Views: 12.9ms | ActiveRecord: 48.3ms | Allocations: 5906054)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:41:26 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+  [1m[36mCryptocurrency Create (8.7ms)[0m  [1m[32mINSERT INTO "cryptocurrencies" ("coingecko_id", "symbol", "price", "buy_price", "quantity", "total_worth", "wallet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["coingecko_id", "bitcoin"], ["symbol", "btc"], ["price", "19951.95"], ["buy_price", "22000.0"], ["quantity", "1.0"], ["total_worth", nil], ["wallet_id", 2], ["created_at", "2022-09-06 12:41:30.440140"], ["updated_at", "2022-09-06 12:41:30.440140"]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cryptocurrencies_controller.rb:36:in `create'
+Completed 200 OK in 1535ms (Views: 33.3ms | ActiveRecord: 32.7ms | Allocations: 5885143)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:42:12 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 500 Internal Server Error in 509ms (ActiveRecord: 15.8ms | Allocations: 4233501)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @cryptocurrency.errors, status: :unprocessable_entity
+                                  ^^^^^^^):
+  
+app/controllers/cryptocurrencies_controller.rb:25:in `create'
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:45:09 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (3.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 200 OK in 554ms (Views: 14.5ms | ActiveRecord: 113.9ms | Allocations: 1876031)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:45:36 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (10.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 422 Unprocessable Entity in 1712ms (Views: 36.7ms | ActiveRecord: 56.2ms | Allocations: 3361827)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:45:47 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (4.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 422 Unprocessable Entity in 781ms (Views: 19.7ms | ActiveRecord: 4.7ms | Allocations: 1612073)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:46:02 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (1.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 200 OK in 39ms (Views: 2.1ms | ActiveRecord: 1.3ms | Allocations: 288233)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:46:35 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (2.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 200 OK in 417ms (Views: 4.5ms | ActiveRecord: 94.7ms | Allocations: 1879460)
+
+
+Started POST "/wallets/2/cryptocurrencies" for ::1 at 2022-09-06 20:46:49 +0800
+Processing by CryptocurrenciesController#create as */*
+  Parameters: {"cryptocurrency"=>"[FILTERED]", "wallet_id"=>"2"}
+  [1m[36mWallet Load (4.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cryptocurrencies_controller.rb:68:in `set_wallet'
+Completed 422 Unprocessable Entity in 1423ms (Views: 43.5ms | ActiveRecord: 15.4ms | Allocations: 3375847)
+
+
