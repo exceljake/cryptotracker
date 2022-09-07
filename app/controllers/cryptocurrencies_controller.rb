@@ -3,7 +3,7 @@ require 'rest-client'
 COINGECKO_URL = 'https://api.coingecko.com/api/v3'
 
 class CryptocurrenciesController < ApplicationController
-  before_action :set_wallet
+  before_action :set_wallet, except: :all_cryptocurrencies
   before_action :set_cryptocurrency, only: %i[ show update destroy ]
 
   def index
@@ -28,7 +28,8 @@ class CryptocurrenciesController < ApplicationController
           price: price(cryptocurrency['id']),
           coingecko_id: cryptocurrency['id'],
           buy_price: (params[:cryptocurrency][:buy_price]), 
-          quantity: (params[:cryptocurrency][:quantity])
+          quantity: (params[:cryptocurrency][:quantity]), 
+          user_id: current_user.id
           )
         if @cryptocurrency.save
           render json: @cryptocurrency
@@ -36,6 +37,11 @@ class CryptocurrenciesController < ApplicationController
           render json: @cryptocurrency.errors, status: :unprocessable_entity
         end
       end
+    end
+
+    def all_cryptocurrencies 
+      @cryptocurrencies = Cryptocurrency.where(user_id: current_user.id)
+      render json: @cryptocurrencies 
     end
 
   def update
