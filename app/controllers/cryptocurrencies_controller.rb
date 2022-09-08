@@ -7,8 +7,14 @@ class CryptocurrenciesController < ApplicationController
   before_action :set_cryptocurrency, only: %i[ show update destroy ]
 
   def index
+    a = top_100
     @wallet.cryptocurrencies.each do |cryptocurrency|
-      cryptocurrency.update(price: price(cryptocurrency.coingecko_id))
+      current_price = a.select { |cc| cc["symbol"] == cryptocurrency.symbol}
+      if current_price != []
+      cryptocurrency.update(price: current_price.first["current_price"])
+      else
+        cryptocurrency.update(price: price(cryptocurrency.coingecko_id))
+      end
     end
     render json: @wallet.cryptocurrencies
   end
@@ -65,6 +71,11 @@ class CryptocurrenciesController < ApplicationController
     def price(name)
       url = "#{COINGECKO_URL}/simple/price?ids=#{name}&vs_currencies=usd"
       JSON.parse(RestClient.get(url).body)[name]['usd']
+    end
+
+    def top_100 
+      url1 = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      JSON.parse(RestClient.get(url1).body)
     end
 
     def set_wallet 
