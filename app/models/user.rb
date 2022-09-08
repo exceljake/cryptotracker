@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   validates :email, presence: true
+  validates :encrypted_password, presence: true, length: { minimum: 6 }
 
   has_many :wallets, dependent: :destroy
 end

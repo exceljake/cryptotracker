@@ -7,6 +7,7 @@ class WalletsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    debugger
     a = top_100
     @wallets = Wallet.where(user_id: current_user.id)
     @wallets.each do |wallet|

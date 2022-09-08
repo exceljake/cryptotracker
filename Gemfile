@@ -55,6 +55,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   # gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'byebug', '~> 11.1', '>= 11.1.3'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -69,7 +70,6 @@ end
 group :test do 
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
   gem 'database_rewinder', '~> 0.9.8'
-  gem 'factory_bot_rails', '~> 6.2'
   gem 'shoulda-matchers', '~> 5.1'
   gem 'vcr', '~> 6.1'
   gem 'webmock', '~> 3.18', '>= 3.18.1'
